@@ -2,7 +2,7 @@
 // Created by Nicolò Vanzo on 25/09/23.
 //
 #include "AsteroidSpawner.h"
-#include "../Asteroid/AsteroidRenderComponent.h"
+#include "../Asteroid/FishRenderComponent.h"
 #include "../Asteroid/FishUpdateComponent.h"
 #include "MyEngine.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
@@ -40,7 +40,7 @@ namespace Asteroids {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         auto gameObject = engine->CreateGameObject("asteroid");
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
-        auto asteroidRenderComponent = std::make_shared<Asteroids::AsteroidRenderComponent>(obj);
+        auto asteroidRenderComponent = std::make_shared<Asteroids::FishRenderComponent>(obj);
         auto asteroidUpdateComponent = std::make_shared<Asteroids::FishUpdateComponent>(obj);
 
         asteroidRenderComponent->sprite = engine->atlas->get("meteorBrown_big1.png");

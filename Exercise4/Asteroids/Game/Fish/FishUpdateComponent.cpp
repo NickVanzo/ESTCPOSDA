@@ -2,18 +2,18 @@
 // Created by Nicolò Vanzo on 25/09/23.
 //
 
-#include "AsteroidUpdateComponent.h"
+#include "FishUpdateComponent.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
 #pragma once
 namespace Asteroids {
     using namespace glm;
-    AsteroidUpdateComponent::AsteroidUpdateComponent(std::weak_ptr<MyEngine::GameObject> p) {
+    FishUpdateComponent::FishUpdateComponent(std::weak_ptr<MyEngine::GameObject> p) {
         _gameObject = p;
     }
-    void AsteroidUpdateComponent::SetDirection(int direction) {
+    void FishUpdateComponent::SetDirection(int direction) {
         this->direction = direction;
     }
-    void AsteroidUpdateComponent::Update(float deltaTime) {
+    void FishUpdateComponent::Update(float deltaTime) {
         std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
         if(direction == LOWER) {
             parent.lock().get()->position += velocity;

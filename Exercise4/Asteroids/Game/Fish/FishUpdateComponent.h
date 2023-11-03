@@ -5,9 +5,9 @@
 #pragma once
 namespace Asteroids {
     using namespace glm;
-    class AsteroidUpdateComponent: public MyEngine::Component {
+    class FishUpdateComponent: public MyEngine::Component {
     public:
-        AsteroidUpdateComponent(std::weak_ptr<MyEngine::GameObject>);
+        FishUpdateComponent(std::weak_ptr<MyEngine::GameObject>);
         void Update(float deltaTime) override;
         void SetDirection(int);
     private:

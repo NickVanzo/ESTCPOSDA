@@ -4,9 +4,9 @@
 #include "Component.h"
 
 namespace  Asteroids {
-    class AsteroidRenderComponent: public MyEngine::Component {
+    class FishRenderComponent: public MyEngine::Component {
     public:
-        AsteroidRenderComponent(std::weak_ptr<MyEngine::GameObject>);
+        FishRenderComponent(std::weak_ptr<MyEngine::GameObject>);
         sre::Sprite sprite;
         void Render(sre::SpriteBatch::SpriteBatchBuilder&) override;
     };

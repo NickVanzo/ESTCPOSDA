@@ -2,7 +2,7 @@
 // Created by Nicolò Vanzo on 27/09/23.
 //
 #include "MyEngine.h"
-#include "../AsteroidSpawner/AsteroidSpawner.h"
+#include "../FishSpawner/FishSpawner.h"
 #pragma once
 
 class GameManager {

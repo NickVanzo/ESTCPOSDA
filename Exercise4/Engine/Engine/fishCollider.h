@@ -1,7 +1,7 @@
 #include "Component.h"
 
 namespace  MyEngine  {
-    class fishColliderComponent : public MyEngine::Component {
+    class FishColliderComponent : public MyEngine::Component {
 
     public:
         bool getIsColliding();

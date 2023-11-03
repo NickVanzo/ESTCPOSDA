@@ -1,7 +1,7 @@
 //
 // Created by Nicolò Vanzo on 25/09/23.
 //
-#include "AsteroidSpawner.h"
+#include "FishSpawner.h"
 #include "../Fish/FishRenderComponent.h"
 #include "../Fish/FishUpdateComponent.h"
 #include "MyEngine.h"
@@ -11,11 +11,11 @@
 namespace Asteroids {
     using namespace glm;
     using namespace std;
-    AsteroidSpawner::AsteroidSpawner(int direction, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent):
+    FishSpawner::FishSpawner(int direction, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent):
     direction(direction), player(player){
         _gameObject = parent;
     }
-    void AsteroidSpawner::Update(float deltaTime) {
+    void FishSpawner::Update(float deltaTime) {
         timeCounter -= deltaTime;
         if(timeCounter < 0) {
             SpawnAsteroid();
@@ -36,7 +36,7 @@ namespace Asteroids {
             }
         }
     }
-    void AsteroidSpawner::SpawnAsteroid() {
+    void FishSpawner::SpawnAsteroid() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         auto gameObject = engine->CreateGameObject("asteroid");
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
@@ -66,7 +66,7 @@ namespace Asteroids {
 
     }
 
-    std::vector<std::shared_ptr<MyEngine::GameObject>> AsteroidSpawner::ChecksAsteroidCollisionsWithLasers() {
+    std::vector<std::shared_ptr<MyEngine::GameObject>> FishSpawner::ChecksAsteroidCollisionsWithLasers() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         std::vector<std::shared_ptr<MyEngine::GameObject>> objectsToRemove = {};
         auto gameManager = engine->GetGameManager();
@@ -95,7 +95,7 @@ namespace Asteroids {
         return objectsToRemove;
     }
 
-    std::vector<std::shared_ptr<MyEngine::GameObject>> AsteroidSpawner::CheckAsteroidCollisionWithBounderiesOrPlayer() {
+    std::vector<std::shared_ptr<MyEngine::GameObject>> FishSpawner::CheckAsteroidCollisionWithBounderiesOrPlayer() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         std::vector<std::shared_ptr<MyEngine::GameObject>> objectsToRemove = {};
         for(int i = 0; i < engine->gameObjects.size(); ++i) {
@@ -111,14 +111,5 @@ namespace Asteroids {
             }
         }
         return objectsToRemove;
-    }
-
-    bool AsteroidSpawner::IsCollidingWithPlayer(float asteroidPosX, float asteroidPosY) {
-        if(player != nullptr) {
-            float distanceBetweenPlayerAndAsteroid = pow(asteroidPosY - player->position.y, 2) + pow(asteroidPosX - player->position.x,2);
-            return distanceBetweenPlayerAndAsteroid <= pow(asteroidsRadius + player->radius, 2);
-        } else {
-            return false;
-        }
     }
 }

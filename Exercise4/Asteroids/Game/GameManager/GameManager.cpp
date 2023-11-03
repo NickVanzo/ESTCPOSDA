@@ -15,10 +15,10 @@ void GameManager::StartGame() {
 void GameManager::CreateAsteroidSpawner() {
     MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
     lowerSpawner = engine->CreateGameObject("asteroidSpawner");
-    auto lowerSpawnerUpdateComponent =std::make_shared<Asteroids::AsteroidSpawner>(Asteroids::LOWER, player, lowerSpawner);
+    auto lowerSpawnerUpdateComponent =std::make_shared<Asteroids::FishSpawner>(Asteroids::LOWER, player, lowerSpawner);
     lowerSpawner->AddComponent(lowerSpawnerUpdateComponent);
 
     upperSpawner = engine->CreateGameObject("asteroidSpawner");
-    auto upperSpawnerUpdateComponent = std::make_shared<Asteroids::AsteroidSpawner>(Asteroids::UPPER, player, upperSpawner);
+    auto upperSpawnerUpdateComponent = std::make_shared<Asteroids::FishSpawner>(Asteroids::UPPER, player, upperSpawner);
     upperSpawner->AddComponent(upperSpawnerUpdateComponent);
 }

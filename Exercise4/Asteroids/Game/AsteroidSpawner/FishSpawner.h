@@ -7,15 +7,14 @@
 
 #pragma once
 namespace Asteroids {
-    class AsteroidSpawner: public MyEngine::Component {
+    class FishSpawner: public MyEngine::Component {
     public:
-        AsteroidSpawner(int, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent);
+        FishSpawner(int, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent);
         void Update(float deltaTime);
         void SpawnAsteroid();
         std::vector<std::shared_ptr<MyEngine::GameObject>> CheckAsteroidCollisionWithBounderiesOrPlayer();
         std::vector<std::shared_ptr<MyEngine::GameObject>> ChecksAsteroidCollisionsWithLasers();
     private:
-        bool IsCollidingWithPlayer(float, float);
         std::shared_ptr<MyEngine::GameObject> player;
         float TIME_TO_SPAWN_ASTEROID = 1;
         float timeCounter = 0;

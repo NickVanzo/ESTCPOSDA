@@ -5,7 +5,7 @@
 #include "FishUpdateComponent.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
 #pragma once
-namespace Asteroids {
+namespace Fishes {
     using namespace glm;
     FishUpdateComponent::FishUpdateComponent(std::weak_ptr<MyEngine::GameObject> p) {
         _gameObject = p;

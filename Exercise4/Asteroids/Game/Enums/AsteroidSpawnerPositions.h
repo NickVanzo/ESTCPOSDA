@@ -3,6 +3,6 @@
 //
 
 #pragma once
-namespace Asteroids {
+namespace Fishes {
     enum ASTEROID_SPAWNER_POS {LOWER = 0, UPPER = 1};
 }

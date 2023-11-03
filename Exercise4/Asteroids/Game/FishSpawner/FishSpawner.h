@@ -6,7 +6,7 @@
 #include "Component.h"
 
 #pragma once
-namespace Asteroids {
+namespace Fishes {
     class FishSpawner: public MyEngine::Component {
     public:
         FishSpawner(int, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent);

@@ -3,7 +3,7 @@
 //
 #include "Component.h"
 
-namespace  Asteroids {
+namespace  Fishes {
     class FishRenderComponent: public MyEngine::Component {
     public:
         FishRenderComponent(std::weak_ptr<MyEngine::GameObject>);

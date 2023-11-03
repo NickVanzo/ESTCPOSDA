@@ -9,7 +9,7 @@ Please check that this is possible before submission, if not we will notify you.
 
 ## 4.1
 Create a sprite sheet using [Texture Packer](www.codeandweb.com/texturepacker) (Free) using the
-sprites found in the Sprites directory. You will need sprites for SpaceShip, Asteroids/Meteors (3 sizes), Laser, and a bang. (Use the settings described in [include/sre/SpriteAtlas.hpp](www.codeandweb.com/texturepacker))
+sprites found in the Sprites directory. You will need sprites for SpaceShip, Fishes/Meteors (3 sizes), Laser, and a bang. (Use the settings described in [include/sre/SpriteAtlas.hpp](www.codeandweb.com/texturepacker))
 https://github.com/mortennobel/SimpleRenderEngine/blob/master/include/sre/SpriteAtlas.hpp
 
 Create a single sprite sheet (asteroids.png + asteroids.json) which contains all sprites used in the game. This should replace the current sprite sheet. (the spritesheet files should go in `ExampleGame/data`)
@@ -29,10 +29,10 @@ Create the Player
   (remember the obstacles in Froggers)
 
 ## 4.3
-Create the Asteroids
+Create the Fishes
 - Has a constant rotation and a constant velocity. The rotation and
 velocity should have a random value upon creation.
-- Asteroids should exist in 3 sizes (optional)
+- Fishes should exist in 3 sizes (optional)
 - When the game starts then add 5 large asteroids on a random position.
 
 ## 4.4

@@ -1,1 +1,0 @@
-g++ -I<./Headers> main.cpp Engine.cpp Player.cpp Score.cpp

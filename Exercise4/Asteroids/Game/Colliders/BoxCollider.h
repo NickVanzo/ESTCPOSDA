@@ -4,18 +4,20 @@ namespace  BoxCollider  {
     class BoxColliderComponent : public MyEngine::Component {
 
     public:
-        void setIsColliding(bool _isColliding);
         bool getIsColliding();
+        void setIsColliding(bool _isColliding);
+
         int getVerticalOffset();
-        void setVerticalOffset();
+        void setVerticalOffset(int _verticalOffset);
+
         int getHorizontalOffset();
-        void setHorizontalOffset();
+        void setHorizontalOffset(int _horizontalOffset);
+
         glm::vec2 getCenter();
-        void setCenter();
+        void setCenter(glm::vec2 _center);
 
     private:
         bool isColliding = false;
-
         int verticalOffset = 1;
         int horizontalOffset = 1;
         glm::vec2 center = glm::vec2(0, 1);

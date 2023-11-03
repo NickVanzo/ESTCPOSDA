@@ -3,7 +3,7 @@
 //
 #include "AsteroidSpawner.h"
 #include "../Asteroid/AsteroidRenderComponent.h"
-#include "../Asteroid/AsteroidUpdateComponent.h"
+#include "../Asteroid/FishUpdateComponent.h"
 #include "MyEngine.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
 #include <cstdlib>
@@ -41,7 +41,7 @@ namespace Asteroids {
         auto gameObject = engine->CreateGameObject("asteroid");
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto asteroidRenderComponent = std::make_shared<Asteroids::AsteroidRenderComponent>(obj);
-        auto asteroidUpdateComponent = std::make_shared<Asteroids::AsteroidUpdateComponent>(obj);
+        auto asteroidUpdateComponent = std::make_shared<Asteroids::FishUpdateComponent>(obj);
 
         asteroidRenderComponent->sprite = engine->atlas->get("meteorBrown_big1.png");
         gameObject->rotation = rand() % 360 - 180;

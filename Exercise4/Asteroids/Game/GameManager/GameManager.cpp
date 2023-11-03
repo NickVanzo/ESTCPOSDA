@@ -1,13 +1,9 @@
 //
 // Created by Nicolò Vanzo on 27/09/23.
 //
-
 #include "sre/SDLRenderer.hpp"
 #include "sre/SpriteAtlas.hpp"
-
 #include "Engine/MyEngine.h"
-
-#include "../Constants/Player.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
 GameManager::~GameManager() {
     std::cout << "Distruttore game manager" << std::endl;

@@ -8,8 +8,6 @@
 #include "../Enums/AsteroidSpawnerPositions.h"
 #include <cstdlib>
 #include "../Constants/Engine.h"
-#include "../Player/PlayerComponentRenderer.h"
-#include "../Player/PlayerUpdateComponent.h"
 namespace Asteroids {
     using namespace glm;
     using namespace std;
@@ -110,9 +108,6 @@ namespace Asteroids {
                 if(isCollidingWithYBoundaries || isCollidingWithXBoundaries) {
                     objectsToRemove.push_back(gameObject);
                 }
-                if(IsCollidingWithPlayer(gameObject->position.x, gameObject->position.y)) {
-                    HandleCollisionWithPlayer();
-                }
             }
         }
         return objectsToRemove;
@@ -126,32 +121,4 @@ namespace Asteroids {
             return false;
         }
     }
-    void AsteroidSpawner::HandleCollisionWithPlayer() {
-        auto components = player->GetComponents();
-        DisabledPlayerRender(components);
-        DisabledPlayerMovement(components);
-    }
-    void AsteroidSpawner::DisabledPlayerRender(std::vector< std::shared_ptr<Component>>& components) {
-        auto it = components.begin();
-        // the process events component has index 0 by "business logic", an hashmap would be better to store the components
-        // the render component has index 1 by "business logic", an hashmap would be better to store the components
-        std::advance(it, 1);
-        std::shared_ptr<Asteroids::PlayerComponentRenderer> playerRenderComponent = std::dynamic_pointer_cast<Asteroids::PlayerComponentRenderer>(*it);
-        if(playerRenderComponent) {
-            playerRenderComponent->TriggerPlayerDeath();
-        } else {
-            std::cout << "Cast non riuscito" << std::endl;
-        }
-    }
-    void AsteroidSpawner::DisabledPlayerMovement(std::vector< std::shared_ptr<Component>>& components) {
-        auto it = components.begin();
-        std::advance(it, 0);
-        std::shared_ptr<Asteroids::PlayerUpdateComponent> playerComponent = std::dynamic_pointer_cast<Asteroids::PlayerUpdateComponent>(*it);
-        if(playerComponent) {
-            playerComponent->TriggerPlayerDeath();
-        } else {
-            std::cout << "Cast non riuscito" << std::endl;
-        }
-    }
-
 }

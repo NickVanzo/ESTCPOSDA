@@ -5,8 +5,6 @@
 #include "sre/SpriteAtlas.hpp"
 
 #include "Engine/MyEngine.h"
-#include "Game/Player/PlayerUpdateComponent.h"
-#include "Game/Player/PlayerComponentRenderer.h"
 #include "Game/Constants/Engine.h"
 
 void ProcessEvents(SDL_Event& event);

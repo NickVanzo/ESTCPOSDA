@@ -1,6 +1,6 @@
 #include "Component.h"
 
-namespace  BoxCollider  {
+namespace  MyEngine  {
     class BoxColliderComponent : public MyEngine::Component {
 
     public:

@@ -25,7 +25,7 @@ int main() {
     renderer.setWindowSize(window_size);
     renderer.init();
     camera.setWindowCoordinates();
-    engine.atlas = sre::SpriteAtlas::create("data/asteroids_sprites.json", "data/asteroids_sprites.png");
+    engine.atlas = sre::SpriteAtlas::create("data/fish_sprites.json", "data/fish_sprites.png");
 
     engine.Init();
 

@@ -38,12 +38,12 @@ namespace Asteroids {
     }
     void FishSpawner::SpawnAsteroid() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
-        auto gameObject = engine->CreateGameObject("asteroid");
+        auto gameObject = engine->CreateGameObject("fish");
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto asteroidRenderComponent = std::make_shared<Asteroids::FishRenderComponent>(obj);
         auto asteroidUpdateComponent = std::make_shared<Asteroids::FishUpdateComponent>(obj);
 
-        asteroidRenderComponent->sprite = engine->atlas->get("meteorBrown_big1.png");
+        asteroidRenderComponent->sprite = engine->atlas->get("clown-fish.png");
         gameObject->rotation = rand() % 360 - 180;
 
         float randX = 0;

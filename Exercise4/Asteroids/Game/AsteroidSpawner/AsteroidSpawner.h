@@ -16,9 +16,6 @@ namespace Asteroids {
         std::vector<std::shared_ptr<MyEngine::GameObject>> ChecksAsteroidCollisionsWithLasers();
     private:
         bool IsCollidingWithPlayer(float, float);
-        void HandleCollisionWithPlayer();
-        void DisabledPlayerRender(std::vector< std::shared_ptr<Component>>&);
-        void DisabledPlayerMovement(std::vector< std::shared_ptr<Component>>&);
         std::shared_ptr<MyEngine::GameObject> player;
         float TIME_TO_SPAWN_ASTEROID = 1;
         float timeCounter = 0;

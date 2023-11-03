@@ -2,8 +2,8 @@
 // Created by Nicolò Vanzo on 25/09/23.
 //
 #include "AsteroidSpawner.h"
-#include "../Asteroid/FishRenderComponent.h"
-#include "../Asteroid/FishUpdateComponent.h"
+#include "../Fish/FishRenderComponent.h"
+#include "../Fish/FishUpdateComponent.h"
 #include "MyEngine.h"
 #include "../Enums/AsteroidSpawnerPositions.h"
 #include <cstdlib>

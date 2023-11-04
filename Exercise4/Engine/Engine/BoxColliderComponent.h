@@ -1,5 +1,6 @@
 #include "Component.h"
 
+#pragma once
 namespace  MyEngine  {
     class BoxColliderComponent : public MyEngine::Component {
 

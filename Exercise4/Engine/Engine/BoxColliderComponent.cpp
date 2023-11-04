@@ -1,4 +1,4 @@
-#include "BoxCollider.h"
+#include "BoxColliderComponent.h"
 
 namespace MyEngine {
     using namespace MyEngine;

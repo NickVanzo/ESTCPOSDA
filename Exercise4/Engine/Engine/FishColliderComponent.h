@@ -1,5 +1,5 @@
 #include "Component.h"
-
+#pragma once
 namespace  MyEngine  {
     class FishColliderComponent : public MyEngine::Component {
 
@@ -16,7 +16,7 @@ namespace  MyEngine  {
     private:
         bool isColliding = false;
 
-        std::list<glm::vec2> nodes = 0;
+        std::list<glm::vec2> nodes = std::list<glm::vec2>();
         glm::vec2 center = glm::vec2(0, 1);
     };
 }

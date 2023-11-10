@@ -3,7 +3,7 @@
 //
 #include "Component.h"
 #pragma once
-namespace Asteroids {
+namespace Fishes {
     using namespace glm;
     class FishUpdateComponent: public MyEngine::Component {
     public:

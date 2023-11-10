@@ -2,7 +2,7 @@
 // Created by Nicolò Vanzo on 25/09/23.
 //
 #include "FishRenderComponent.h"
-namespace Asteroids {
+namespace Fishes {
     using namespace std;
     FishRenderComponent::FishRenderComponent(std::weak_ptr<MyEngine::GameObject> p) {
         _gameObject = p;

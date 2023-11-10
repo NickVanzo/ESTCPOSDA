@@ -8,7 +8,7 @@
 #include "../Enums/AsteroidSpawnerPositions.h"
 #include <cstdlib>
 #include "../Constants/Engine.h"
-namespace Asteroids {
+namespace Fishes {
     using namespace glm;
     using namespace std;
     FishSpawner::FishSpawner(int direction, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent):
@@ -40,8 +40,8 @@ namespace Asteroids {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         auto gameObject = engine->CreateGameObject("fish");
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
-        auto asteroidRenderComponent = std::make_shared<Asteroids::FishRenderComponent>(obj);
-        auto asteroidUpdateComponent = std::make_shared<Asteroids::FishUpdateComponent>(obj);
+        auto asteroidRenderComponent = std::make_shared<Fishes::FishRenderComponent>(obj);
+        auto asteroidUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
 
         asteroidRenderComponent->sprite = engine->atlas->get("clown-fish.png");
         gameObject->rotation = rand() % 360 - 180;

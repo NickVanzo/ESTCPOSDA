@@ -20,9 +20,38 @@ namespace Fishes {
     }
     void FishUpdateComponent::Update(float deltaTime) {
         std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
+
+        if (swayTimer < 0) {
+            swayTimer = (rand() % 3) + 1;
+            swayDir = int (rand() % 3) - 1;
+            while (swayDir == 0) {
+                swayDir = int(rand() % 2) - 1;
+            }
+            swayCount = 0;
+            parent.lock().get()->rotation += (swayDir);
+
+        } 
+        else if (swayCount < swayAmount) {
+            parent.lock().get()->rotation += (swayDir);
+            parent.lock().get()->position += glm::rotate(
+                originDirection,
+                glm::radians(parent.lock().get()->rotation)
+            ) * speed;
+            swayCount += abs(swayDir);
+
+        }
+        else {
+            parent.lock().get()->position += glm::rotate(
+                originDirection, 
+                glm::radians(parent.lock().get()->rotation)
+            ) * speed;
+            swayTimer -= deltaTime;
+        }
+
         
         CheckWrap();
-        parent.lock().get()->position += glm::rotate(originDirection, glm::radians(parent.lock().get()->rotation))*speed;
+
+
     }
 
     void FishUpdateComponent::CheckWrap() {

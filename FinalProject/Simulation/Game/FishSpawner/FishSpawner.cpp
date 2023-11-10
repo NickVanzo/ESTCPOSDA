@@ -22,7 +22,7 @@ namespace Fishes {
         timeCounter -= deltaTime;
         if((timeCounter < 0) && (fishCount < maxFishCount)) {
             ++fishCount;
-            std::cout << fishCount << std::endl;
+            
             SpawnFish();
             timeCounter = TIME_TO_SPAWN_FISH;
         }

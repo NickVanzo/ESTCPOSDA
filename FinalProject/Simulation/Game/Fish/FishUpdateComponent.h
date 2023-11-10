@@ -12,7 +12,13 @@ namespace Fishes {
         void SetDirection(int);
     private:
         int direction = 1;
-        int MAX_SPEED = 4;
+        int MAX_SPEED = 2;
+
+        float swayTimer = -1;
+        int swayAmount = 30;
+        int swayCount = 40;
+        float swayDir;
+
         float speed = rand() % MAX_SPEED + 2;
         vec2 originDirection = vec2(-1, 0);
 

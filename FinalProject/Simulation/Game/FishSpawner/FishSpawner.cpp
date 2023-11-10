@@ -13,31 +13,27 @@
 namespace Fishes {
     using namespace glm;
     using namespace std;
-    FishSpawner::FishSpawner(int direction, std::shared_ptr<MyEngine::GameObject> player, std::weak_ptr<MyEngine::GameObject> parent):
-    direction(direction), player(player){
+    FishSpawner::FishSpawner(int direction, std::weak_ptr<MyEngine::GameObject> parent):
+    direction(direction){
         _gameObject = parent;
     }
+
     void FishSpawner::Update(float deltaTime) {
         timeCounter -= deltaTime;
         if(timeCounter < 0) {
             SpawnFish();
             timeCounter = TIME_TO_SPAWN_FISH;
         }
-        auto objectsToRemove = CheckFishCollisionWithBounderiesOrPlayer();
 
-        if(!objectsToRemove.empty()) {
-            for(const auto & i : objectsToRemove) {
-                MyEngine::Engine::GetInstance()->RemoveObject(i);
-            }
-        }
-
-        auto objectsCollidingWithLasers = ChecksFishCollisionsWithLasers();
+        ///////////////////////////////////////////// COLLISION CHECK EXAMPLE //////////////////////////////////////////////
+        /*auto objectsCollidingWithLasers = ChecksFishCollisionsWithLasers();
         if(!objectsCollidingWithLasers.empty()) {
             for(const auto & i : objectsCollidingWithLasers) {
                 MyEngine::Engine::GetInstance()->RemoveObject(i);
             }
-        }
+        }*/
     }
+
     void FishSpawner::SpawnFish() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         auto gameObject = engine->CreateGameObject("fish");
@@ -51,6 +47,7 @@ namespace Fishes {
         float randX = 0;
         float randY = 0;
 
+        /////////////////////////////////////// CHANGE WHEN FISHUPDATECOMPONENT HAS BEEN CAHNGED//////////////////////////////////
         if(direction == LOWER) {
             //spawn only along the lower part of the screen
             randX = rand() % (int) CUSTOM_WINDOW_WIDTH;
@@ -68,7 +65,8 @@ namespace Fishes {
 
     }
 
-    std::vector<std::shared_ptr<MyEngine::GameObject>> FishSpawner::ChecksFishCollisionsWithLasers() {
+    ///////////////////////////////////////////// COLLISION CHECK EXAMPLE //////////////////////////////////////////////
+    /*std::vector<std::shared_ptr<MyEngine::GameObject>> FishSpawner::ChecksFishCollisionsWithLasers() {
         MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
         std::vector<std::shared_ptr<MyEngine::GameObject>> objectsToRemove = {};
         auto gameManager = engine->GetGameManager();
@@ -95,23 +93,6 @@ namespace Fishes {
             }
         }
         return objectsToRemove;
-    }
+    }*/
 
-    std::vector<std::shared_ptr<MyEngine::GameObject>> FishSpawner::CheckFishCollisionWithBounderiesOrPlayer() {
-        MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
-        std::vector<std::shared_ptr<MyEngine::GameObject>> objectsToRemove = {};
-        for(int i = 0; i < engine->gameObjects.size(); ++i) {
-            auto gameObject = engine->gameObjects[i];
-            if(gameObject== nullptr) continue;
-            if(gameObject->GetName() == "fish") {
-                bool isCollidingWithXBoundaries = (gameObject->position.x >= engine->GetScreenSize().x) || (gameObject->position.x == 0);
-                bool isCollidingWithYBoundaries = (gameObject->position.y >=  engine->GetScreenSize().y) || (gameObject->position.y == 0);
-
-                if(isCollidingWithYBoundaries || isCollidingWithXBoundaries) {
-                    objectsToRemove.push_back(gameObject);
-                }
-            }
-        }
-        return objectsToRemove;
-    }
 }

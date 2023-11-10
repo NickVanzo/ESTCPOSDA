@@ -16,11 +16,12 @@ void GameManager::StartGame() {
 
 void GameManager::CreateFishSpawner() {
     MyEngine::Engine* engine = MyEngine::Engine::GetInstance();
-    lowerSpawner = engine->CreateGameObject("fishSpawner");
-    auto lowerSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::LOWER, player, lowerSpawner);
+
+    lowerSpawner = engine->CreateGameObject("FishSpawner");
+    auto lowerSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::LOWER, lowerSpawner);
     lowerSpawner->AddComponent(lowerSpawnerUpdateComponent);
 
-    upperSpawner = engine->CreateGameObject("fishSpawner");
-    auto upperSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::UPPER, player, upperSpawner);
+    upperSpawner = engine->CreateGameObject("FishSpawner");
+    auto upperSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::UPPER, upperSpawner);
     upperSpawner->AddComponent(upperSpawnerUpdateComponent);
 }

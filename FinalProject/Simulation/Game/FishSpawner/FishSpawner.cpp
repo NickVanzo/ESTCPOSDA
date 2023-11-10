@@ -20,7 +20,9 @@ namespace Fishes {
 
     void FishSpawner::Update(float deltaTime) {
         timeCounter -= deltaTime;
-        if(timeCounter < 0) {
+        if((timeCounter < 0) && (fishCount < maxFishCount)) {
+            ++fishCount;
+            std::cout << fishCount << std::endl;
             SpawnFish();
             timeCounter = TIME_TO_SPAWN_FISH;
         }
@@ -63,6 +65,14 @@ namespace Fishes {
         gameObject->AddComponent(fishRenderComponent);
         gameObject->AddComponent(fishUpdateComponent);
 
+    }
+
+    void FishSpawner::SetMaxFishCount(int _maxFishCount) {
+        maxFishCount = _maxFishCount;
+    }
+
+    void FishSpawner::SetFishType(std::string _type) {
+        fish = _type;
     }
 
     ///////////////////////////////////////////// COLLISION CHECK EXAMPLE //////////////////////////////////////////////

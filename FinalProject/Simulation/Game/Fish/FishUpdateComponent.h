@@ -15,6 +15,8 @@ namespace Fishes {
         int MAX_SPEED = 4;
         float speed = rand() % MAX_SPEED + 2;
         vec2 originDirection = vec2(-1, 0);
+
+        void FishUpdateComponent::CheckWrap();
     };
 }
 

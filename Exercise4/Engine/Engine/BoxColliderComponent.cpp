@@ -1,7 +1,7 @@
-#include "BoxCollider.h"
+#include "BoxColliderComponent.h"
 
-namespace BoxCollider {
-    using namespace BoxCollider;
+namespace MyEngine {
+    using namespace MyEngine;
     
     /*
     Returns true if BoxCollider has collided with another collision object.

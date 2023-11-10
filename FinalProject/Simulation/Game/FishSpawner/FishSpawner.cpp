@@ -55,7 +55,7 @@ namespace Fishes {
             fishUpdateComponent->SetDirection(LOWER);
         } else if(direction == UPPER) {
             //spawn only along the upper part of the screen
-            randY = CUSTOM_WINDOW_HEIGHT + 400;
+            randY = CUSTOM_WINDOW_HEIGHT + 100;
             randX = rand() % (int) CUSTOM_WINDOW_WIDTH;
             fishUpdateComponent->SetDirection(UPPER);
         }

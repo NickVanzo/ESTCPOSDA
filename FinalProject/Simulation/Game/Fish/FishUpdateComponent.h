@@ -12,9 +12,9 @@ namespace Fishes {
         void SetDirection(int);
     private:
         int direction = 1;
-        int MAX_SPPED = 60;
-        float speed = rand() % MAX_SPPED + 1;
-        vec2 velocity = vec2((rand() % 10) - 5,rand() % 5 + 1);
+        int MAX_SPEED = 4;
+        float speed = rand() % MAX_SPEED + 2;
+        vec2 originDirection = vec2(-1, 0);
     };
 }
 

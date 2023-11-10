@@ -4,6 +4,10 @@
 
 #include "FishUpdateComponent.h"
 #include "../Enums/FishSpawnerPositions.h"
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/rotate_vector.hpp>
+
+
 #pragma once
 namespace Fishes {
     using namespace glm;
@@ -15,11 +19,6 @@ namespace Fishes {
     }
     void FishUpdateComponent::Update(float deltaTime) {
         std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
-        if(direction == LOWER) {
-            parent.lock().get()->position += velocity;
-        } else if(direction == UPPER) {
-            parent.lock().get()->position -= velocity;
-        } else {}
-        parent.lock().get()->rotation += + 1 * speed;
+        parent.lock().get()->position += glm::rotate(originDirection, glm::radians(parent.lock().get()->rotation))*speed;
     }
 }

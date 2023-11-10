@@ -4,7 +4,7 @@
 #include "sre/SpriteAtlas.hpp"
 #include "SDL.h"
 #include "GameObject.h"
-#include "../../Simulation/Game/GameManager/GameManager.h"
+#include "../../Asteroids/Game/GameManager/GameManager.h"
 
 class GameObject;
 

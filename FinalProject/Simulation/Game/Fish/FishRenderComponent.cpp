@@ -11,7 +11,6 @@ namespace Fishes {
         std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
         sprite.setPosition(parent.lock().get()->position);
         sprite.setRotation(parent.lock().get()->rotation);
-        sprite.setScale(glm::vec2(0.1, 0.1));
         builder.addSprite(sprite);
     }
 }

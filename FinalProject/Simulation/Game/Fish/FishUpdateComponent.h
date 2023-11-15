@@ -10,6 +10,10 @@ namespace Fishes {
         FishUpdateComponent(std::weak_ptr<MyEngine::GameObject>);
         void Update(float deltaTime) override;
         void SetDirection(int);
+
+        bool checkDistance(float distance);
+        void follow(glm::vec2 dir);
+        void eat();
         
         std::string fishType = "prey";
 

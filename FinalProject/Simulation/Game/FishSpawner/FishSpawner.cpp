@@ -45,7 +45,7 @@ namespace Fishes {
         auto fishUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
         //auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>;
 
-        if (fish == "Predator") {
+        if (fish == "predator") {
             fishRenderComponent->sprite = engine->atlas->get("tuna.png");
             fishRenderComponent->sprite.setScale(glm::vec2(0.15, 0.15));
         }

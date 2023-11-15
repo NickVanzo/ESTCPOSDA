@@ -19,7 +19,7 @@ void GameManager::CreateFishSpawner() {
 
     lowerSpawner = engine->CreateGameObject("FishSpawner");
     auto lowerSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::LOWER, lowerSpawner);
-    lowerSpawnerUpdateComponent->SetFishType("Predator");
+    lowerSpawnerUpdateComponent->SetFishType("predator");
     lowerSpawnerUpdateComponent->SetMaxFishCount(5);
     lowerSpawner->AddComponent(lowerSpawnerUpdateComponent);
 

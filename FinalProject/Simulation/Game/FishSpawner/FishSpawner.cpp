@@ -43,7 +43,7 @@ namespace Fishes {
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto fishRenderComponent = std::make_shared<Fishes::FishRenderComponent>(obj);
         auto fishUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
-        auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>(obj);
+        //auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>;
 
         if (fish == "Predator") {
             fishRenderComponent->sprite = engine->atlas->get("tuna.png");

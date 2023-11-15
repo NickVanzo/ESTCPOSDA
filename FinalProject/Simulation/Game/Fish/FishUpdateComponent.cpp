@@ -78,7 +78,7 @@ namespace Fishes {
     //  Check the distance and return true if the
     //  predator is close enough to eat the prey otherwise return false
     bool FishUpdateComponent::checkDistance(float distance) {
-
+        return false;
     }
 
     //  Change the direction that the fish is going to the direction given

@@ -6,6 +6,8 @@ namespace  MyEngine  {
     class BoxColliderComponent : public MyEngine::Component {
 
     public:
+        void Update(float deltaTime) override;
+
         void setFish(Fishes::FishUpdateComponent _fish);
 
         bool getIsColliding();

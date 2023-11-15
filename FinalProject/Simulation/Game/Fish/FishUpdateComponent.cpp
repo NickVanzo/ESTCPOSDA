@@ -50,7 +50,7 @@ namespace Fishes {
         
         CheckWrap();
 
-
+        // prey gain energy here after a set amount of time
     }
 
     void FishUpdateComponent::CheckWrap() {
@@ -73,5 +73,21 @@ namespace Fishes {
         else if (screenSize.y < _y) {
             parent.lock().get()->position.y = 0;
         }
+    }
+
+    //  Check the distance and return true if the
+    //  predator is close enough to eat the prey otherwise return false
+    bool FishUpdateComponent::checkDistance(float distance) {
+        return false;
+    }
+
+    //  Change the direction that the fish is going to the direction given
+    void FishUpdateComponent::follow(glm::vec2 dir) {
+
+    }
+
+    //  gain energy
+    void FishUpdateComponent::eat() {
+
     }
 }

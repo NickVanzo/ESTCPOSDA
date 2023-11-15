@@ -12,10 +12,10 @@ namespace  MyEngine {
         void SetStrategy(std::unique_ptr<Strategy>&& strategy);
 
         void CheckAABBCollisions();
-        void CheckAABBCollision(std::shared_ptr<BoxColliderComponent> bc1, std::shared_ptr<BoxColliderComponent> bc2) const;
+        void CheckAABBCollision(std::shared_ptr<Component> bc1, std::shared_ptr<Component> bc2) const;
 
         void CheckGJKCollisions();
-        void CheckGJKCollision(std::shared_ptr<FishColliderComponent> bc1, std::shared_ptr<FishColliderComponent> bc2) const;
+        void CheckGJKCollision(std::shared_ptr<Component> bc1, std::shared_ptr<Component> bc2) const;
 
     private:
         std::unique_ptr<Strategy> strategy_;

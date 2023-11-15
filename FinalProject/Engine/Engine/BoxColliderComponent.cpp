@@ -3,6 +3,13 @@
 namespace MyEngine {
     using namespace MyEngine;
 
+    void BoxColliderComponent::Update(float deltaTime) {
+        //follow my fish
+        std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
+
+        setCenter(parent.lock().get()->position);
+    }
+
     /*
     fish that corresponds to this boxCollider.
     */

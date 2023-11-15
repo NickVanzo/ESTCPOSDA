@@ -20,7 +20,6 @@ namespace Fishes {
     }
     void FishUpdateComponent::Update(float deltaTime) {
         std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
-
         if (swayTimer < 0) {
             swayTimer = (rand() % 3) + 1;
             swayDir = int (rand() % 3) - 1;

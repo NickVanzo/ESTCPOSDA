@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include "../Constants/Engine.h"
 #include "../GameManager/GameManager.h"
+#include <BoxColliderComponent.h>
 
 namespace Fishes {
     using namespace glm;
@@ -42,8 +43,18 @@ namespace Fishes {
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto fishRenderComponent = std::make_shared<Fishes::FishRenderComponent>(obj);
         auto fishUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
+        auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>(obj);
 
-        fishRenderComponent->sprite = engine->atlas->get("clown-fish.png");
+        if (fish == "Predator") {
+            fishRenderComponent->sprite = engine->atlas->get("tuna.png");
+            fishRenderComponent->sprite.setScale(glm::vec2(0.15, 0.15));
+        }
+        else {
+            fishRenderComponent->sprite = engine->atlas->get("clown-fish.png");
+            fishRenderComponent->sprite.setScale(glm::vec2(0.1, 0.1));
+
+
+        }
         gameObject->rotation = rand() % 360 - 180;
 
         float randX = 0;

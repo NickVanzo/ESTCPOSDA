@@ -21,6 +21,8 @@ namespace MyEngine {
         if (strategy_) 
         {
            std::string result = strategy_->checkCollision(bc1, bc2);
+
+           //if (result )
         }
         else 
         {

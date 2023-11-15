@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "../../Simulation/Game/Fish/FishUpdateComponent.h"
 
 #pragma once
 namespace  MyEngine  {

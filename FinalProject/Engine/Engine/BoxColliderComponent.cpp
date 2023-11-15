@@ -2,6 +2,14 @@
 
 namespace MyEngine {
     using namespace MyEngine;
+
+    /*
+    fish that corresponds to this boxCollider.
+    */
+    void BoxColliderComponent::setFish(Fishes::FishUpdateComponent _fish)
+    {
+        fish = _fish;
+    }
     
     /*
     Returns true if BoxCollider has collided with another collision object.

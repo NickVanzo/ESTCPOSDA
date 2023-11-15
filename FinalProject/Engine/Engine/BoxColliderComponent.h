@@ -5,6 +5,8 @@ namespace  MyEngine  {
     class BoxColliderComponent : public MyEngine::Component {
 
     public:
+        void setFish(Fishes::FishUpdateComponent _fish);
+
         bool getIsColliding();
         void setIsColliding(bool _isColliding);
 
@@ -17,6 +19,10 @@ namespace  MyEngine  {
         glm::vec2 getCenter();
         void setCenter(glm::vec2 _center);
 
+        void Collision(std::string _type);
+
+        Fishes::FishUpdateComponent fish;
+    
     private:
         bool isColliding = false;
         int verticalOffset = 1;

@@ -1,11 +1,11 @@
-
+#include "BoxColliderComponent.h"
+#include "Strategy.h"
 
 namespace  MyEngine {
     class ConcreteStrategyGJK : public MyEngine::Strategy {
 
     public:
-        std::string checkCollision(std::shared_ptr<BoxCollider> bc1, std::shared_ptr<BoxCollider> bc2) const override;
-
+        bool checkCollision(std::shared_ptr<Component> bc1, std::shared_ptr<Component> bc2) const override;
     private:
 
     };

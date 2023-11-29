@@ -5,7 +5,7 @@
 #include "../FishSpawner/FishSpawner.h"
 #pragma once
 
-class GameManager: public MyEngine::GameObject {
+class GameManager: public MyEngine::Component {
 public:
     ~GameManager();
     void Init();

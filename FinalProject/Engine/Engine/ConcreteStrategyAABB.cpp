@@ -6,7 +6,7 @@
 namespace MyEngine {
     bool ConcreteStrategyAABB::checkCollision(std::shared_ptr<MyEngine::Component> bc1,
                                               std::shared_ptr<MyEngine::Component> bc2) const {
-
+            if(bc1 == nullptr || bc2 == nullptr) return false;
             auto bc1BoxCollider = std::static_pointer_cast<MyEngine::BoxColliderComponent>(bc1);
             auto bc2BoxCollider = std::static_pointer_cast<MyEngine::BoxColliderComponent>(bc2);
             if (bc1BoxCollider && bc2BoxCollider) {

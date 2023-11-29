@@ -22,8 +22,9 @@ namespace MyEngine {
         // initializes random generator
         std::srand(std::time(nullptr));
         _camera.setWindowCoordinates();
-        gameManager = std::make_shared<GameManager>();
-        gameManager->Init();
+        auto gm = CreateGameObject("GameManager");
+        auto c = std::make_shared<GameManager>();
+        gm->AddComponent(c);
         for(auto g : gameObjects)
             g->Init();
     }

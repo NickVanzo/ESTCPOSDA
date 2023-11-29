@@ -19,11 +19,10 @@ namespace MyEngine {
 
     void CollisionContext::CheckAABBCollision(std::shared_ptr<Component> bc1, std::shared_ptr<Component> bc2) const
     {
-        if (strategy_) 
+        if (strategy_)
         {
            bool result = strategy_->checkCollision(bc1, bc2);
-            std::cout << "Is colliding? " << result << std::endl;
-           if (result) 
+           if (result)
            {
                //   get the colliders and fish from the given parameters
                auto collider1 = dynamic_cast<BoxColliderComponent*>(bc1.get());

@@ -18,7 +18,17 @@ void GameManager::Init() {
 }
 
 void GameManager::Update(float deltaTime) {
+    auto fishes = lowerSpawner->FindComponent<Fishes::FishSpawner>().lock()->fishes;
+    auto fishes2 = upperSpawner->FindComponent<Fishes::FishSpawner>().lock()->fishes;
+    fishes.insert(fishes.end(), fishes2.begin(), fishes2.end());
 
+    for(int i = 0; i < fishes.size(); i++) {
+        auto bx1 = fishes[i]->FindComponent<MyEngine::BoxColliderComponent>();
+        for(int j = i + 1; j < fishes.size() - 1; j++) {
+            auto bx2 = fishes[j]->FindComponent<MyEngine::BoxColliderComponent>();
+            ctx->CheckAABBCollision(std::dynamic_pointer_cast<MyEngine::Component>(bx1.lock()), std::dynamic_pointer_cast<MyEngine::Component>(bx2.lock()));
+        }
+    }
 }
 
 void GameManager::CreateFishSpawner() {

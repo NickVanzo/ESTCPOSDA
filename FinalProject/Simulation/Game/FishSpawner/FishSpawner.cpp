@@ -47,7 +47,7 @@ namespace Fishes {
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto fishRenderComponent = std::make_shared<Fishes::FishRenderComponent>(obj);
         auto fishUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
-        //auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>(obj);
+        auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>(obj.lock());
 
         if (fish == "predator") {
             fishRenderComponent->sprite = engine->atlas->get("tuna.png");
@@ -79,6 +79,7 @@ namespace Fishes {
         gameObject->position = glm::vec2(randX,randY);
         gameObject->AddComponent(fishRenderComponent);
         gameObject->AddComponent(fishUpdateComponent);
+        gameObject->AddComponent(fishBoxColliderComponent);
 
         fishes.push_back(gameObject);
     }

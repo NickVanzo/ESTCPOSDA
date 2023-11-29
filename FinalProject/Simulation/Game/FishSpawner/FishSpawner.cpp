@@ -10,6 +10,8 @@
 #include "../Constants/Engine.h"
 #include "../GameManager/GameManager.h"
 #include <BoxColliderComponent.h>
+#include "CollisionContext.h"
+#include "ConcreteStrategyAABB.h"
 
 namespace Fishes {
     using namespace glm;
@@ -17,6 +19,8 @@ namespace Fishes {
     FishSpawner::FishSpawner(int direction, std::weak_ptr<MyEngine::GameObject> parent):
     direction(direction){
         _gameObject = parent;
+        ctx = std::make_shared<MyEngine::CollisionContext>();
+        ctx->SetStrategy(std::make_unique<MyEngine::ConcreteStrategyAABB>());
     }
 
     void FishSpawner::Update(float deltaTime) {
@@ -43,7 +47,7 @@ namespace Fishes {
         std::weak_ptr<MyEngine::GameObject> obj = gameObject;
         auto fishRenderComponent = std::make_shared<Fishes::FishRenderComponent>(obj);
         auto fishUpdateComponent = std::make_shared<Fishes::FishUpdateComponent>(obj);
-        //auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>;
+        //auto fishBoxColliderComponent = std::make_shared<MyEngine::BoxColliderComponent>(obj);
 
         if (fish == "predator") {
             fishRenderComponent->sprite = engine->atlas->get("tuna.png");
@@ -76,6 +80,7 @@ namespace Fishes {
         gameObject->AddComponent(fishRenderComponent);
         gameObject->AddComponent(fishUpdateComponent);
 
+        fishes.push_back(gameObject);
     }
 
     void FishSpawner::SetMaxFishCount(int _maxFishCount) {

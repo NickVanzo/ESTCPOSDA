@@ -22,15 +22,15 @@ namespace MyEngine {
         if (strategy_) 
         {
            bool result = strategy_->checkCollision(bc1, bc2);
-
+            std::cout << "Is colliding? " << result << std::endl;
            if (result) 
            {
                //   get the colliders and fish from the given parameters
-               BoxColliderComponent* collider1 = dynamic_cast<BoxColliderComponent*>(bc1.get());
+               auto collider1 = dynamic_cast<BoxColliderComponent*>(bc1.get());
                auto fish1 = collider1->fish;
                std::string type1 = fish1.fishType;
 
-               BoxColliderComponent* collider2 = dynamic_cast<BoxColliderComponent*>(bc2.get());
+               auto collider2 = dynamic_cast<BoxColliderComponent*>(bc2.get());
                auto fish2 = collider2->fish;
                std::string type2 = fish2.fishType;
 
@@ -40,7 +40,7 @@ namespace MyEngine {
                    glm::vec2 pos1 = collider1->getCenter();
                    glm::vec2 pos2 = collider2->getCenter();
 
-                   float Distance = sqrt(pow((pos2.x - pos1.x), 2) + pow((pos2.y - pos1.y), 2));
+                   float distance = sqrt(pow((pos2.x - pos1.x), 2) + pow((pos2.y - pos1.y), 2));
 
                    if (type1 == "predator")
                    {
@@ -50,6 +50,7 @@ namespace MyEngine {
                        if the return is "Follow" then send the follow direction to the predator fish.
                        if the return is "Eat" then delete the prey fish and collider.
                        */
+
                    }
                    else
                    {

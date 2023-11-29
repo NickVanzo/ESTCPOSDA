@@ -3,21 +3,14 @@
 namespace MyEngine {
     using namespace MyEngine;
 
+    BoxColliderComponent::BoxColliderComponent(std::shared_ptr<MyEngine::GameObject> g) {
+        _gameObject = g;
+    }
+
     void BoxColliderComponent::Update(float deltaTime) {
-        //follow my fish
-        std::weak_ptr<MyEngine::GameObject> parent = GetGameObject();
-
-        setCenter(parent.lock().get()->position);
+        setCenter(_gameObject.lock()->position);
     }
 
-    /*
-    fish that corresponds to this boxCollider.
-    */
-    void BoxColliderComponent::setFish(Fishes::FishUpdateComponent _fish)
-    {
-        fish = _fish;
-    }
-    
     /*
     Returns true if BoxCollider has collided with another collision object.
     */

@@ -6,12 +6,19 @@
 #include "Engine/MyEngine.h"
 #include "../Enums/FishSpawnerPositions.h"
 #include "GameManager.h"
+#include "ConcreteStrategyAABB.h"
 
 GameManager::~GameManager() {
     std::cout << "Distruttore game manager" << std::endl;
 }
-void GameManager::StartGame() {
+void GameManager::Init() {
     CreateFishSpawner();
+    ctx = std::make_shared<MyEngine::CollisionContext>();
+    ctx->SetStrategy(std::make_unique<MyEngine::ConcreteStrategyAABB>());
+}
+
+void GameManager::Update(float deltaTime) {
+
 }
 
 void GameManager::CreateFishSpawner() {
@@ -27,5 +34,4 @@ void GameManager::CreateFishSpawner() {
     auto upperSpawnerUpdateComponent = std::make_shared<Fishes::FishSpawner>(Fishes::UPPER, upperSpawner);
     upperSpawnerUpdateComponent->SetMaxFishCount(5);
     upperSpawner->AddComponent(upperSpawnerUpdateComponent);
-    
 }

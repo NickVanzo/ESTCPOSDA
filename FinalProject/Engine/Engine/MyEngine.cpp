@@ -23,7 +23,7 @@ namespace MyEngine {
         std::srand(std::time(nullptr));
         _camera.setWindowCoordinates();
         gameManager = std::make_shared<GameManager>();
-        gameManager->StartGame();
+        gameManager->Init();
         for(auto g : gameObjects)
             g->Init();
     }

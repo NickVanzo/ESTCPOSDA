@@ -35,6 +35,17 @@ namespace MyEngine {
         float timeAlive = 0;
 		// private fields
 
+        template <class T>
+        std::weak_ptr<T> FindComponent() {
+            for(std::shared_ptr<Component> component : _components)
+            {
+                std::shared_ptr<T> candidate_ret = std::dynamic_pointer_cast<T>(component);
+                if (candidate_ret != nullptr)
+                    return candidate_ret;
+            }
+            return std::weak_ptr<T>();
+        }
+
 	private:
 		std::vector<std::shared_ptr<Component>> _components = {};
 		std::string _name;

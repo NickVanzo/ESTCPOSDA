@@ -5,13 +5,17 @@
 #include "../FishSpawner/FishSpawner.h"
 #pragma once
 
-class GameManager {
+class GameManager: public MyEngine::GameObject {
 public:
     ~GameManager();
-    void StartGame();
+    void Init();
     void CreateFishSpawner();
     float points = 0;
+    void Update(float);
     std::shared_ptr<MyEngine::GameObject> player;
     std::shared_ptr<MyEngine::GameObject> upperSpawner;
     std::shared_ptr<MyEngine::GameObject> lowerSpawner;
+    std::shared_ptr<MyEngine::CollisionContext> ctx;
+    std::vector< std::shared_ptr<MyEngine::GameObject>> fishes;
+
 };

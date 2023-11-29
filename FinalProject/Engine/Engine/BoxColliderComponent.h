@@ -6,9 +6,8 @@ namespace  MyEngine  {
     class BoxColliderComponent : public MyEngine::Component {
 
     public:
+        BoxColliderComponent(std::shared_ptr<MyEngine::GameObject>);
         void Update(float deltaTime) override;
-
-        void setFish(Fishes::FishUpdateComponent _fish);
 
         bool getIsColliding();
         void setIsColliding(bool _isColliding);
@@ -24,8 +23,6 @@ namespace  MyEngine  {
 
         void Collision(std::string _type);
 
-        Fishes::FishUpdateComponent fish;
-    
     private:
         bool isColliding = false;
         int verticalOffset = 1;

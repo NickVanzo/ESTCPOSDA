@@ -27,12 +27,12 @@ namespace MyEngine {
            {
                //   get the colliders and fish from the given parameters
                auto collider1 = dynamic_cast<BoxColliderComponent*>(bc1.get());
-               auto fish1 = collider1->fish;
-               std::string type1 = fish1.fishType;
+               auto fish1 = collider1->_gameObject.lock()->FindComponent<Fishes::FishUpdateComponent>();
+               std::string type1 = fish1.lock()->fishType;
 
                auto collider2 = dynamic_cast<BoxColliderComponent*>(bc2.get());
-               auto fish2 = collider2->fish;
-               std::string type2 = fish2.fishType;
+               auto fish2 = collider2->_gameObject.lock()->FindComponent<Fishes::FishUpdateComponent>();
+               std::string type2 = fish2.lock()->fishType;
 
                //   if one of the fish is a predator (not both)
                if ((type1 == "predator" || type2 == "predator") && (type1 != type2))
@@ -41,7 +41,7 @@ namespace MyEngine {
                    glm::vec2 pos2 = collider2->getCenter();
 
                    float distance = sqrt(pow((pos2.x - pos1.x), 2) + pow((pos2.y - pos1.y), 2));
-
+                    std::cout << "Checking distance: " << distance << std::endl;
                    if (type1 == "predator")
                    {
                        /*

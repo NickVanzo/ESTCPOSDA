@@ -11,7 +11,8 @@ namespace  MyEngine {
     };
     class ConcreteStrategyAABB : public MyEngine::Strategy {
     public:
-        bool checkCollision(std::shared_ptr<MyEngine::Component> bc1, std::shared_ptr<MyEngine::Component> bc2);
+        bool checkCollision(const std::shared_ptr<MyEngine::Component> bc1, const  std::shared_ptr<MyEngine::Component> bc2);
+        bool checkCollisionAABB(const std::shared_ptr<MyEngine::BoxColliderComponent> bc1, const std::shared_ptr<MyEngine::BoxColliderComponent> bc2);
     private:
         std::shared_ptr<BoxColliderPoints> buildColliderPoints(std::shared_ptr<MyEngine::BoxColliderComponent>);
     };
